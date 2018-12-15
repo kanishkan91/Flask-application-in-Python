@@ -1,0 +1,51 @@
+<!-- documents.html -->
+
+<html>
+
+<head>
+   <h1> World Bank Knowledge Management (Project scraper tool)</h1>
+   <p> The user can search for projects pertaining to relevant topics using
+       this tool. Please enter your search term in the form below.The default
+       search term is set to "Education"</p>
+</head>
+
+<form method="post">
+    <input name="question1_field" placeholder="enter search term here"">
+    <input type="submit">
+</form>
+
+
+
+<body>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;  
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+</style>
+  <h2>Relevant project names displayed below</h2>
+<table>
+  <tr>
+    <th>Project name</th>
+    <th>Organization</th>
+    <th>Year        </th>
+    <th>ProjectID        </th>
+</tr>  
+{% for doc in docs %}
+<tr>
+<td>{{doc["ProjectName"]}}</td>
+<td>{{doc["Organization"]}}</td>
+<td>{{doc["Year"]}}</td>
+<td>{{doc["ProjectID"]}}</td>    
+</tr>
+{% endfor %}
+</table>
+</body>
+</html>
